@@ -22,7 +22,7 @@ public class TeamService : ITeamService
         return await _teamRepository.GetAllAsync();
     }
 
-    public async Task<Team?> GetByIdAsync(int id)
+    public async Task<Team?> GetByIdAsync(int id) // Consultar
     {
         _logger.LogInformation("Retrieving team with ID: {TeamId}", id);
         var team = await _teamRepository.GetByIdAsync(id);
@@ -33,7 +33,7 @@ public class TeamService : ITeamService
         return team;
     }
 
-    public async Task<Team> CreateAsync(Team team)
+    public async Task<Team> CreateAsync(Team team) // Crear
     {
         // Validación de negocio: nombre único
         var existingTeam = await _teamRepository.GetByNameAsync(team.Name);
@@ -48,7 +48,7 @@ public class TeamService : ITeamService
         return await _teamRepository.CreateAsync(team);
     }
 
-    public async Task UpdateAsync(int id, Team team)
+    public async Task UpdateAsync(int id, Team team) // Actualizar
     {
         var existingTeam = await _teamRepository.GetByIdAsync(id);
         if (existingTeam == null)
@@ -79,7 +79,7 @@ public class TeamService : ITeamService
         await _teamRepository.UpdateAsync(existingTeam);
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id) // Eliminar
     {
         var exists = await _teamRepository.ExistsAsync(id);
         if (!exists)

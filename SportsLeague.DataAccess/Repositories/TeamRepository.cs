@@ -11,13 +11,13 @@ public class TeamRepository : GenericRepository<Team>, ITeamRepository
     {
     }
 
-    public async Task<Team?> GetByNameAsync(string name)
+    public async Task<Team?> GetByNameAsync(string name) // Aqui devuelvo un objeto de tipo Team
     {
         return await _dbSet
             .FirstOrDefaultAsync(t => t.Name.ToLower() == name.ToLower());
     }
 
-    public async Task<IEnumerable<Team>> GetByCityAsync(string city)
+    public async Task<IEnumerable<Team>> GetByCityAsync(string city) // Aqui devuelvo una lista de objetos de tipo Team
     {
         return await _dbSet
             .Where(t => t.City.ToLower() == city.ToLower())

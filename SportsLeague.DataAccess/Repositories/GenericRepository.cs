@@ -5,16 +5,18 @@ using SportsLeague.Domain.Interfaces.Repositories;
 
 namespace SportsLeague.DataAccess.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : AuditBase
+    public class GenericRepository<T> : IGenericRepository<T> where T : AuditBase // Control de calidad (solo funciona con objetos que hereden AuditBase)
     {
-        protected readonly LeagueDbContext _context;
-        protected readonly DbSet<T> _dbSet;
+        protected readonly LeagueDbContext _context; // Cable a db
+        protected readonly DbSet<T> _dbSet; // Tabla especifica (manipulacion al set de datos)
 
         public GenericRepository(LeagueDbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();
         }
+
+        // Generics
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
@@ -23,7 +25,7 @@ namespace SportsLeague.DataAccess.Repositories
 
         public async Task<T?> GetByIdAsync(int id)
         {
-            return await _dbSet.FindAsync(id);
+            return await _dbSet.FindAsync(id); 
         }
 
         public async Task<T> CreateAsync(T entity)
@@ -31,7 +33,7 @@ namespace SportsLeague.DataAccess.Repositories
             entity.CreatedAt = DateTime.UtcNow;
             entity.UpdatedAt = null;
             await _dbSet.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // Crucial
             return entity;
         }
 
