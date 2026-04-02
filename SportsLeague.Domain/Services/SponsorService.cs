@@ -25,17 +25,18 @@ namespace SportsLeague.Domain.Services
             _logger = logger;
         }
 
+        public async Task<Sponsor?> GetByIdAsync(int id)
+        {
+            _logger.LogInformation("Retrieving sponsor with ID: {SponsorId}", id);
+            return await _sponsorRepository.GetByIdAsync(id);
+        }
+
         public async Task<IEnumerable<Sponsor>> GetAllAsync()
         {
             _logger.LogInformation("Retrieving all sponsors");
             return await _sponsorRepository.GetAllAsync();
         }
 
-        public async Task<Sponsor?> GetByIdAsync(int id)
-        {
-            _logger.LogInformation("Retrieving sponsor with ID: {SponsorId}", id);
-            return await _sponsorRepository.GetByIdAsync(id);
-        }
 
         public async Task<Sponsor> CreateAsync(Sponsor sponsor)
         {

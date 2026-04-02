@@ -2,9 +2,9 @@
 {
     public enum SponsorCategory
     {
-        Main = 0, // Patrocinador 1
-        Gold = 1, 
-        Silver = 2,
-        Bronze = 3
+        Main = 0,   // Principal Partner
+        Gold = 1,   // High Tier
+        Silver = 2, // Mid Tier
+        Bronze = 3  // Standard Tier
     }
 }

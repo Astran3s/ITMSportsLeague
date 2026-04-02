@@ -7,11 +7,11 @@ namespace SportsLeague.DataAccess.Repositories
 {
     public class SponsorRepository : GenericRepository<Sponsor>, ISponsorRepository
     {
-        public SponsorRepository(LeagueDbContext context) : base(context)
+        public SponsorRepository(LeagueDbContext context) : base(context) // builder
         {
         }
 
-        public async Task<bool> ExistsByNameAsync(string name)
+        public async Task<bool> ExistsByNameAsync(string name) // own
         {
             return await _dbSet.AnyAsync(s => s.Name.ToLower() == name.ToLower());
         }

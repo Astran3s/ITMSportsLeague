@@ -32,5 +32,17 @@ public class MappingProfile : Profile
                 opt => opt.MapFrom(src =>
                     src.TournamentTeams != null ? src.TournamentTeams.Count : 0));
 
+        // --- Mappings para Sponsor ---
+        CreateMap<SponsorRequestDTO, Sponsor>();
+        CreateMap<Sponsor, SponsorResponseDTO>();
+
+        // --- Mappings para TournamentSponsor (La relación) ---
+        CreateMap<TournamentSponsor, TournamentSponsorResponseDTO>();
+
+        // Aquí le decimos que saque el nombre desde la relación
+        CreateMap<TournamentSponsor, TournamentSponsorResponseDTO>()
+            .ForMember(dest => dest.TournamentName, opt => opt.MapFrom(src => src.Tournament.Name))
+            .ForMember(dest => dest.SponsorName, opt => opt.MapFrom(src => src.Sponsor.Name));
+
     }
 }
