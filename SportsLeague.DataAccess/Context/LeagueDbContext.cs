@@ -15,7 +15,7 @@ public class LeagueDbContext : DbContext
     public DbSet<Referee> Referees => Set<Referee>();              // NUEVO
     public DbSet<Tournament> Tournaments => Set<Tournament>();    // NUEVO
     public DbSet<TournamentTeam> TournamentTeams => Set<TournamentTeam>(); // NUEVO
-    public DbSet<Sponsor> Sponsors => Set<Sponsor>();
+    public DbSet<Sponsor> Sponsors => Set<Sponsor>(); // practica
     public DbSet<TournamentSponsor> TournamentSponsors => Set<TournamentSponsor>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -178,7 +178,7 @@ public class LeagueDbContext : DbContext
                   .IsUnique();
         });
 
-        // TournamentSponsor Config (N:M) (cardinalidad) 
+        // TournamentSponsor
 
         modelBuilder.Entity<TournamentSponsor>(entity =>
         {
