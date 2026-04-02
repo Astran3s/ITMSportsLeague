@@ -10,8 +10,7 @@ namespace SportsLeague.Domain.Entities
         public string? Phone { get; set; }
         public string? WebsiteUrl { get; set; }
 
-        // el enum
-        public SponsorCategory Category { get; set; }
+        public SponsorCategory Category { get; set; } // enum (tipo de sponsor)
 
         public ICollection<TournamentSponsor> TournamentSponsors { get; set; } = new List<TournamentSponsor>();
     }
