@@ -4,6 +4,6 @@ namespace SportsLeague.Domain.Interfaces.Repositories
 {
     public interface ISponsorRepository : IGenericRepository<Sponsor>
     {
-        Task<bool> ExistsByNameAsync(string name); // Own method
+        Task<bool> ExistsByNameAsync(string name); // Own method 
     }
 } 

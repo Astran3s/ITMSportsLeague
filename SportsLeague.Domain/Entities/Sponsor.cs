@@ -16,4 +16,4 @@ namespace SportsLeague.Domain.Entities
         //Navigation 
         public ICollection<TournamentSponsor> TournamentSponsors { get; set; } = new List<TournamentSponsor>(); 
     }
-}
+} // Phase 4

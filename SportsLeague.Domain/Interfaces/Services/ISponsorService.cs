@@ -15,4 +15,4 @@ namespace SportsLeague.Domain.Interfaces.Services
         Task<IEnumerable<TournamentSponsor>> GetTournamentsBySponsorAsync(int sponsorId); // reports
         Task UnlinkSponsorFromTournamentAsync(int sponsorId, int tournamentId); // retire
     }
-} 
+}  

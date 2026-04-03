@@ -16,4 +16,4 @@ namespace SportsLeague.DataAccess.Repositories
             return await _dbSet.AnyAsync(s => s.Name.ToLower() == name.ToLower());
         }
     }
-}
+} 

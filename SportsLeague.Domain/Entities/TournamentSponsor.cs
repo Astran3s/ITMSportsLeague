@@ -10,7 +10,7 @@ namespace SportsLeague.Domain.Entities
 
         // contract data (payload)
         public decimal ContractAmount { get; set; }
-        public DateTime JoinedAt { get; set; }
+        public DateTime JoinedAt { get; set; } 
 
         // relationship Navigation Properties 
         public Tournament Tournament { get; set; } = null!; 

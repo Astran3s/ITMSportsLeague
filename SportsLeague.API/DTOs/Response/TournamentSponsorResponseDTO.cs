@@ -12,4 +12,4 @@
         public decimal ContractAmount { get; set; } // TournamentSponsor
         public DateTime JoinedAt { get; set; }
     }
-}
+} 
