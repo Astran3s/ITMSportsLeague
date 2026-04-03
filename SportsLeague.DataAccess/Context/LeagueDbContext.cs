@@ -15,8 +15,8 @@ public class LeagueDbContext : DbContext
     public DbSet<Referee> Referees => Set<Referee>();              // NUEVO
     public DbSet<Tournament> Tournaments => Set<Tournament>();    // NUEVO
     public DbSet<TournamentTeam> TournamentTeams => Set<TournamentTeam>(); // NUEVO
-    public DbSet<Sponsor> Sponsors => Set<Sponsor>(); // added
-    public DbSet<TournamentSponsor> TournamentSponsors => Set<TournamentSponsor>(); // added
+    public DbSet<Sponsor> Sponsors => Set<Sponsor>(); // #added
+    public DbSet<TournamentSponsor> TournamentSponsors => Set<TournamentSponsor>(); // #added
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -153,17 +153,17 @@ public class LeagueDbContext : DbContext
 
             entity.Property(s => s.Name)
                   .IsRequired()
-                  .HasMaxLength(150);
-
-            entity.Property(s => s.ContactEmail)
-                  .IsRequired()
-                  .HasMaxLength(200);
-
-            entity.Property(s => s.Phone)
                   .HasMaxLength(50);
 
             entity.Property(s => s.WebsiteUrl)
-                  .HasMaxLength(250);
+                  .HasMaxLength(100);
+
+            entity.Property(s => s.Phone)
+                  .HasMaxLength(30);
+
+            entity.Property(s => s.ContactEmail)
+                  .IsRequired()
+                  .HasMaxLength(30);
 
             entity.Property(s => s.Category)
                   .IsRequired();

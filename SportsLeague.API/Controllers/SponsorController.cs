@@ -93,14 +93,14 @@ public class SponsorController : ControllerBase
         }
     }
 
-    // --- RELACIÓN N:M ---
+    // n:m
 
     [HttpPost("{id}/tournaments")]
     public async Task<ActionResult<TournamentSponsorResponseDTO>> LinkTournament(int id, TournamentSponsorRequestDTO dto)
     {
         try
         {
-            // Usamos el nombre de método exacto que pusimos en Service
+            
             var result = await _sponsorService.LinkSponsorToTournamentAsync(id, dto.TournamentId, dto.ContractAmount);
             return Ok(_mapper.Map<TournamentSponsorResponseDTO>(result));
         }

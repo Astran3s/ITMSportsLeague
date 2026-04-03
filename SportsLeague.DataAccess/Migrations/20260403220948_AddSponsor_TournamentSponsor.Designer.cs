@@ -12,7 +12,7 @@ using SportsLeague.DataAccess.Context;
 namespace SportsLeague.DataAccess.Migrations
 {
     [DbContext(typeof(LeagueDbContext))]
-    [Migration("20260402160233_AddSponsor_TournamentSponsor")]
+    [Migration("20260403220948_AddSponsor_TournamentSponsor")]
     partial class AddSponsor_TournamentSponsor
     {
         /// <inheritdoc />
@@ -116,27 +116,27 @@ namespace SportsLeague.DataAccess.Migrations
 
                     b.Property<string>("ContactEmail")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<string>("Phone")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("WebsiteUrl")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
