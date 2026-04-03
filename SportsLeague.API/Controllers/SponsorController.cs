@@ -100,7 +100,7 @@ public class SponsorController : ControllerBase
     {
         try
         {
-            
+
             var result = await _sponsorService.LinkSponsorToTournamentAsync(id, dto.TournamentId, dto.ContractAmount);
             return Ok(_mapper.Map<TournamentSponsorResponseDTO>(result));
         }
@@ -127,4 +127,4 @@ public class SponsorController : ControllerBase
             return NotFound(new { message = ex.Message });
         }
     }
-} 
+}

@@ -13,4 +13,4 @@ namespace SportsLeague.Domain.Interfaces.Repositories
         // Recovery of all partners
         Task<IEnumerable<TournamentSponsor>> GetByTournamentIdAsync(int tournamentId);
     }
-} 
+}
