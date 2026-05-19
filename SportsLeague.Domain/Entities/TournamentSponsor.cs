@@ -1,5 +1,7 @@
 ﻿//using SportsLeague.Domain.Entities;
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SportsLeague.Domain.Entities
 {
     public class TournamentSponsor : AuditBase

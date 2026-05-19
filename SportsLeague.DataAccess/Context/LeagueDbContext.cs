@@ -215,7 +215,7 @@ public class LeagueDbContext : DbContext
 
             entity.HasIndex(ts => new { ts.TournamentId, ts.SponsorId })
                   .IsUnique();
-        });
+        }); 
 
         // ── Match Configuration ──
         modelBuilder.Entity<Match>(entity =>

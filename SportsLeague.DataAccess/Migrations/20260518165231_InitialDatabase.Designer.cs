@@ -12,8 +12,8 @@ using SportsLeague.DataAccess.Context;
 namespace SportsLeague.DataAccess.Migrations
 {
     [DbContext(typeof(LeagueDbContext))]
-    [Migration("20260517212906_New3TablesMatchResultGoalCard")]
-    partial class New3TablesMatchResultGoalCard
+    [Migration("20260518165231_InitialDatabase")]
+    partial class InitialDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

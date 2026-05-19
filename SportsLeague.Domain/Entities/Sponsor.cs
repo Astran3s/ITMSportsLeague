@@ -1,5 +1,6 @@
 ﻿//using System.Collections.Generic;
 using SportsLeague.Domain.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SportsLeague.Domain.Entities
 {

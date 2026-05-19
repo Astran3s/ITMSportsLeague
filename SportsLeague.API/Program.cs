@@ -1,10 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using SportsLeague.DataAccess.Context;
 using SportsLeague.DataAccess.Repositories;
+using SportsLeague.DataAccess.Seeders;
 using SportsLeague.Domain.Helpers;
 using SportsLeague.Domain.Interfaces.Repositories;
 using SportsLeague.Domain.Interfaces.Services;
 using SportsLeague.Domain.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +45,7 @@ builder.Services.AddScoped<ISponsorService, SponsorService>(); // service sponso
 builder.Services.AddScoped<IMatchService, MatchService>(); // ── Services (agregar) ──
 builder.Services.AddScoped<IMatchEventService, MatchEventService>(); // Phase 5-2
 builder.Services.AddScoped<MatchValidationHelper>();
+builder.Services.AddScoped<IStandingsService, StandingsService>(); // Phase 6
 
 
 
@@ -58,6 +61,17 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// ── Data Seeder ──
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider
+        .GetRequiredService<LeagueDbContext>();
+
+    await context.Database.MigrateAsync(); // Crea la BD + aplica migraciones
+    await DataSeeder.SeedAsync(context);
+}
+
+
 // ── Middleware Pipeline ──
 if (app.Environment.IsDevelopment())
 {
@@ -70,4 +84,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
- 
